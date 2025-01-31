@@ -7,17 +7,18 @@ jobs:
      needs: build
      runs-on: ubuntu-latest
      steps:
+     - name: read the file
+       run: |
+          mkdir artifacts
+          cd artifacts
      -  name: download-file
         uses: actions/download-artifact@v4
         with:
           name: hello-artifact
-     - name: read the file
-       run: |
-           mkdir artifacts
-           mv hello.txt artifacts/
-           pwd
-           ls
-           cat ./artifacts/hello.txt
+          path: ./artifacts
+     - name: Display content of the text file
+       run: cat ./artifacts/hello.txt
+      
   build:
     runs-on: ubuntu-latest
 
