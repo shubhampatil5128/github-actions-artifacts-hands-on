@@ -11,9 +11,12 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: hello-artifact
-          path: ./artifacts/hello.txt
      - name: read the file
-       run: cat ./artifacts/hello.txt
+       run: |
+           mkdir artifacts
+           mv hello.txt artifacts/
+           pwd
+           #cat ./artifacts/hello.txt
   build:
     runs-on: ubuntu-latest
 
