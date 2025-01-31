@@ -16,6 +16,7 @@ jobs:
            mkdir artifacts
            mv hello.txt artifacts/
            pwd
+           ls
            #cat ./artifacts/hello.txt
   build:
     runs-on: ubuntu-latest
