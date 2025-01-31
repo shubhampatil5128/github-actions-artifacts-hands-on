@@ -3,6 +3,16 @@ name: Workflow Demo
 on: [push]
 
 jobs:
+  download:
+     needs: build
+     runs-on: ubuntu-latest
+     steps:
+     -  name: download-file
+        uses: actions/download-artifact@v4
+        with:
+          name: hello-artifact
+     - name: read the file
+       run: cat hello.txt
   build:
     runs-on: ubuntu-latest
 
@@ -18,3 +28,4 @@ jobs:
       with:
         name: hello-artifact
         path: hello.txt
+        
