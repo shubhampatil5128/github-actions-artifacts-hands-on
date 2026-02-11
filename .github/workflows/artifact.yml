@@ -28,8 +28,9 @@ jobs:
         with:
           name: hello-artifact
           path: ./artifacts
-      - name: Display structure of downloaded files
+      - name: Display content of the text file
         run: cat ./artifacts/hello.txt
+
 
 
 
